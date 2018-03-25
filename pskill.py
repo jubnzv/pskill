@@ -86,8 +86,9 @@ def run():
     # Show processes using this port and exit
     if args['--check']:
         using = [p[0] for p in pm.list() if p[1] == port]
-        print(''.join(using))
-        if not using:
+        if using:
+            print(''.join(using))
+        else:
             logging.info('There are no processes on %d' % port)
         return
 
